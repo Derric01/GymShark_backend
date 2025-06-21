@@ -28,7 +28,11 @@ app.use(helmet({
 }));
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.FRONTEND_URL || 'https://gym-sharks-frontend.vercel.app'] // Will be updated with your actual Vercel URL
+    ? [
+        process.env.FRONTEND_URL || 'https://gym-shark-frontend.vercel.app',
+        'https://gym-shark-frontend.vercel.app',
+        'https://gym-sharks-frontend.vercel.app'
+      ]
     : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:8080'],
   credentials: true
 }));
