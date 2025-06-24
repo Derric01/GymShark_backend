@@ -5,10 +5,10 @@ class GeminiClient {
     if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'your_gemini_api_key_here') {
       console.warn('⚠️  Gemini API key not configured. AI features will be disabled.');
       this.genAI = null;
-      this.model = null;
-    } else {
+      this.model = null;    } else {
       this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-      this.model = this.genAI.getGenerativeModel({ model: 'gemini-pro' });
+      // Try the most current model name
+      this.model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
     }
     
     // Rate limiting protection
